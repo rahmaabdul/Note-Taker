@@ -12,11 +12,12 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use("./public", express.static("./"));
+app.use(express.static(path.join(__dirname, "public")));
 
-app.get("");
+// app.get("");
 
-require("routes/")(app);
-require("routes")(app);
+require("routeshtmlRoutes.js")(app);
+// require("routes")(app);
 
 app.listen(PORT, function () {
   console.log("app running on port" + PORT);
